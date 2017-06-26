@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/backend/php_shopping_cart.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/menu.php" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/objects/food.php" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/objects/food_image.php" dialect="MySQL" />
+  </component>
+</project>

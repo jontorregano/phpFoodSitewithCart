@@ -1,0 +1,32 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: jonto
+ * Date: 6/26/2017
+ * Time: 2:11 PM
+ */
+
+// start session
+session_start();
+
+// remove items from the cart
+session_destroy();
+
+// set page title
+$page_title="Thank You!";
+
+// include page header HTML
+include_once 'layout_head.php';
+
+echo "<div class='col-md-12'>";
+
+    // tell the user order has been placed
+    echo "<div class='alert alert-success'>";
+        echo "<strong>Your order has been placed!</strong> Thank you very much!";
+    echo "</div>";
+
+echo "</div>";
+
+// include page footer HTML
+include_once 'layout_foot.php';
+?>
