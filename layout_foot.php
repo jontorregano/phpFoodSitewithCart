@@ -46,4 +46,20 @@
 </script>
 
 </body>
+<!-- Footer-->
+<footer class="footer">
+    <div class="footer-copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <span class="copyright">© 2017 Grab It N Go, All Rights Reserved.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer end-->
+
 </html>

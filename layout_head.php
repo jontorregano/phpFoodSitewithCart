@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jonto
- * Date: 6/26/2017
- * Time: 11:50 AM
- */
 $_SESSION['cart']=isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
 ?>
 
@@ -16,7 +10,7 @@ $_SESSION['cart']=isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title><?php echo isset($page_title) ? $page_title : "The Code of a Ninja"; ?></title>
+    <title><?php echo isset($page_title) ? $page_title : "Grab It N Go Menu"; ?></title>
 
     <!-- Bootstrap CSS -->
     <link href="libs/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet" media="screen">
@@ -31,10 +25,38 @@ $_SESSION['cart']=isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
     <!-- custom css for users -->
     <link href="libs/bootstrap-3.3.7/css/user.css" rel="stylesheet" media="screen">
 
-</head>
-<body>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Grab It N Go Food Mart</title>
+    <!-- Favicons-->
 
+    <!-- Web Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Hind:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400i" rel="stylesheet">
+    <!-- Bootstrap core CSS-->
+    <link href="Content/bootstrap.min.css" rel="stylesheet">
+    <!-- Icon Fonts-->
+    <link href="Content/font-awesome.min.css" rel="stylesheet">
+    <link href="Content/linea-arrows.css" rel="stylesheet">
+    <link href="Content/linea-icons.css" rel="stylesheet">
+    <!-- Plugins-->
+    <link href="Content/owl.carousel.css" rel="stylesheet">
+    <link href="Content/magnific-popup.css" rel="stylesheet">
+    <link href="Content/vertical.min.css" rel="stylesheet">
+    <link href="Content/pace-theme-minimal.css" rel="stylesheet">
+    <link href="Content/animate.css" rel="stylesheet">
+    <!-- Template core CSS-->
+    <link href="Content/template.css" rel="stylesheet">
+
+
+</head>
+
+<body>
 <?php include 'navigation.php'; ?>
+
 
 <!-- container -->
 <div class="container">
@@ -42,6 +64,6 @@ $_SESSION['cart']=isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
 
         <div class="col-md-12">
             <div class="page-header">
-                <h1><?php echo isset($page_title) ? $page_title : "The Code of a Ninja"; ?></h1>
+               <h1><?php echo isset($page_title) ? $page_title : "Grab it N Go Food Mart"; ?></h1>
             </div>
         </div>

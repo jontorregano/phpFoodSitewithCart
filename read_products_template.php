@@ -48,4 +48,5 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 }
 
 include_once "paging.php";
+
 ?>
