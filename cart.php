@@ -105,6 +105,7 @@ if(count($_SESSION['cart'])>0){
 
 // no products were added to cart
 else{
+
     echo "<div class='col-md-12'>";
     echo "<div class='alert alert-danger'>";
     echo "No products found in your cart!";

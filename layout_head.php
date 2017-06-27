@@ -16,7 +16,7 @@ $_SESSION['cart']=isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title><?php echo isset($page_title) ? $page_title : "The Code of a Ninja"; ?></title>
+    <title><?php echo isset($page_title) ? $page_title : "Fix The Page Header Reference"; ?></title>
 
     <!-- Bootstrap CSS -->
     <link href="libs/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet" media="screen">
@@ -42,6 +42,6 @@ $_SESSION['cart']=isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
 
         <div class="col-md-12">
             <div class="page-header">
-                <h1><?php echo isset($page_title) ? $page_title : "The Code of a Ninja"; ?></h1>
+                <h1><?php echo isset($page_title) ? $page_title : "Fix The Page Header Reference"; ?></h1>
             </div>
         </div>
