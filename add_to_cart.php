@@ -22,12 +22,12 @@ if(!isset($_SESSION['cart'])){
 }
 
 if(array_key_exists($id,$_SESSION['cart'])){
-    header('Location: foods.php?action=exist&&id=' . $id . '&page=' . $page);
+    header('Location: menu.php?action=exist&&id=' . $id . '&page=' . $page);
 }
 
 else {
     $_SESSION['cart'][$id] = $cart_item;
 
-    header('Location: foods.php?action=added&page=' . $page);
+    header('Location: menu.php?action=added&page=' . $page);
 }
 ?>

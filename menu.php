@@ -66,9 +66,6 @@ else {
     echo "</div>";
 }
 
-// contents will be here
-
-
 // layout footer code
 include 'layout_foot.php';
 ?>

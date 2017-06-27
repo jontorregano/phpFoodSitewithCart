@@ -10,7 +10,11 @@ $_SESSION['cart']=isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<<<<<<< HEAD
     <title><?php echo isset($page_title) ? $page_title : "Grab It N Go Menu"; ?></title>
+=======
+    <title><?php echo isset($page_title) ? $page_title : "Fix The Page Header Reference"; ?></title>
+>>>>>>> origin/master
 
     <!-- Bootstrap CSS -->
     <link href="libs/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet" media="screen">
@@ -64,6 +68,10 @@ $_SESSION['cart']=isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
 
         <div class="col-md-12">
             <div class="page-header">
+<<<<<<< HEAD
                <h1><?php echo isset($page_title) ? $page_title : "Grab it N Go Food Mart"; ?></h1>
+=======
+                <h1><?php echo isset($page_title) ? $page_title : "Fix The Page Header Reference"; ?></h1>
+>>>>>>> origin/master
             </div>
         </div>
