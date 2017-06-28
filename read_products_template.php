@@ -40,7 +40,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         //add to cart button
         echo "<div class='m-b-10px text-center'>";
             if(array_key_exists($id,$_SESSION['cart'])){
-                echo "<a href='cart.php' class='btn btn-success w-45-pct'>";
+                echo "<a href='cart.php' class='btn btn-danger btn-circle w-45-pct'>";
                     echo "Update Cart";
                 echo "</a>";
             }else{
