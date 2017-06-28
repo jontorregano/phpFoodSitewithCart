@@ -44,12 +44,11 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                     echo "Update Cart";
                 echo "</a>";
             }else{
-                echo "<a href='add_to_cart.php?id={$id}&page={$page}' class='btn btn-circle btn-white w-45-pct'>Add to Cart</a>";
+                echo "<a href='add_to_cart.php?id={$id}&page={$page}' class='btn btn-circle btn-white w-45-pct text-center'>Add to Cart</a>";
             }
         echo "</div>";
     echo "</div>";
 }
 
 include_once "paging.php";
-
 ?>

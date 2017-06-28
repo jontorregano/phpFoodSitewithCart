@@ -24,13 +24,12 @@ class Food
 
     function read($from_record_num, $records_per_page)
     {
-
         $query = "SELECT
                 id, name, description, price 
             FROM
                 " . $this->table_name . "
             ORDER BY
-                name DESC
+                name ASC
             LIMIT
                 ?, ?";
 
@@ -46,7 +45,6 @@ class Food
 
     public function count()
     {
-
         $query = "SELECT count(*) FROM " . $this->table_name;
 
         $stmt = $this->conn->prepare($query);
@@ -60,14 +58,18 @@ class Food
 
     public function readByIds($ids){
 
-        $ids_arr = str_repeat('?', count($ids) -  1) . '?';
+        $ids_arr = str_repeat('?,', count($ids) - 1) . '?';
 
+        // query to select products
         $query = "SELECT id, name, price FROM " . $this->table_name . " WHERE id IN ({$ids_arr}) ORDER BY name";
 
+        // prepare query statement
         $stmt = $this->conn->prepare($query);
 
+        // execute query
         $stmt->execute($ids);
 
+        // return values from database
         return $stmt;
     }
 

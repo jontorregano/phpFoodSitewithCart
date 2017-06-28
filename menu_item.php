@@ -119,7 +119,6 @@ echo "<div class='col-md-2'>";
     }
 echo "</div>";
 
-// content will be here
-
 // include page footer HTML
 include_once 'layout_foot.php';
+?>

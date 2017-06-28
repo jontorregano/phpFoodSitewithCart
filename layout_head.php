@@ -18,9 +18,7 @@ $_SESSION['cart']=isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
 
 
     <title><?php echo isset($page_title) ? $page_title : "Grab It N Go Menu"; ?></title>
-
     <title><?php echo isset($page_title) ? $page_title : "Fix The Page Header Reference"; ?></title>
-
 
     <!-- Bootstrap CSS -->
     <link href="libs/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet" media="screen">
@@ -63,10 +61,8 @@ $_SESSION['cart']=isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
 
 
 </head>
-
 <body>
 <?php include 'navigation.php'; ?>
-
 
 <!-- container -->
 <div class="container">

@@ -14,7 +14,6 @@ include "config/database.php";
 include_once "objects/food.php";
 include_once  "objects/food_image.php";
 
-
 $database = new Database();
 $db = $database->getConnection();
 

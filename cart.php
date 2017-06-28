@@ -87,7 +87,6 @@ if(count($_SESSION['cart'])>0){
         $item_count += $quantity;
         $total+=$sub_total;
     }
-
     echo "<div class='col-md-8'></div>";
     echo "<div class='col-md-4'>";
         echo "<div class='cart-row'>";
@@ -109,7 +108,5 @@ else{
     echo "</div>";
     echo "</div>";
 }
-
 include_once 'layout_foot.php';
-
 ?>
