@@ -81,11 +81,11 @@ echo "<div class='col-md-4' id='product-img'>";
 
 echo "<div class='col-md-5'>";
 
-    echo "<div class='product-detail'>Price:</div>";
-    echo "<h4 class='m-b-10px price-description'>&#36;" . number_format($food->price, 2, '.', ',') . "</h4>";
+    echo "<div style='color:#313131;' class='product-detail'>Price:</div>";
+    echo "<h4 style='color:#8B0000;' class='m-b-10px price-description'>&#36;" . number_format($food->price, 2, '.', ',') . "</h4>";
 
-    echo "<div class='product-detail'>Product description:</div>";
-    echo "<div class='m-b-10px'>";
+    echo "<div style='color:#313131;' class='product-detail'>Product description:</div>";
+    echo "<div style='color:#8B0000;' class='m-b-10px'>";
     // make html
     $page_description = htmlspecialchars_decode(htmlspecialchars_decode($food->description));
 
@@ -98,7 +98,7 @@ echo "<div class='col-md-2'>";
     // if product was already added in the cart
     if(array_key_exists($id, $_SESSION['cart'])){
         echo "<div class='m-b-10px'>This product is already in your cart.</div>";
-        echo "<a href='cart.php' class='btn btn-success w-100-pct'>";
+        echo "<a href='cart.php' class='btn btn-circle btn-danger w-100-pct'>";
         echo "Update Cart";
         echo "</a>";
     }

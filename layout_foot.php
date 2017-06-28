@@ -40,7 +40,7 @@
 </script>
 </body>
 <!-- Footer-->
-<footer class="footer">
+<footer class="footer" style="margin-top: 30px;">
     <div class="footer-copyright">
         <div class="container">
             <div class="row">

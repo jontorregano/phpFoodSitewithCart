@@ -66,14 +66,14 @@ if(count($_SESSION['cart'])>0){
                     echo "<div class='product-id' style='display:none;'>{$id}</div>";
                     echo "<div class='input-group'>";
                         echo "<input type='number' name='quantity' value='{$quantity}' class='form-control cart-quantity' min='1' />";
-                            echo "<span class='input-group-btn'>";
-                                echo "<button class='btn btn-default update-quantity' type='submit'>Update</button>";
+                            echo "<span class=''>";
+                                echo "<button class='btn btn-danger btn-circle update-quantity' type='submit'>Update</button>";
                             echo "</span>";
                         echo "</div>";
                     echo "</form>";
 
                     // delete from cart
-                    echo "<a href='remove_from_cart.php?id={$id}' class='btn btn-default'>";
+                    echo "<a href='remove_from_cart.php?id={$id}' class='btn btn-danger btn-circle'>";
                         echo "Delete";
                     echo "</a>";
             echo "</div>";
@@ -93,7 +93,7 @@ if(count($_SESSION['cart'])>0){
         echo "<div class='cart-row'>";
             echo "<h4 class='m-b-10px'>Total ({$item_count} items)</h4>";
             echo "<h4>&#36;" . number_format($total, 2, '.', ',') . "</h4>";
-                echo "<a href='checkout.php' class='btn btn-success m-b-10px'>";
+                echo "<a href='checkout.php' class='btn btn-danger btn-circle m-b-10px'>";
             echo "<span class='glyphicon glyphicon-shopping-cart'></span> Proceed to Checkout";
         echo "</a>";
     echo "</div>";
