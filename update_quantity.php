@@ -19,3 +19,4 @@ $_SESSION['cart'][$id]=array(
 );
 
 header('Location: cart.php?action=quantity_updated&id=' . $id);
+?>
