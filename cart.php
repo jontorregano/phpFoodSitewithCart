@@ -65,7 +65,7 @@ if(count($_SESSION['cart'])>0){
                     echo "<form class='update-quantity-form'>";
                     echo "<div class='food-id' style='display:none;'>{$id}</div>";
                     echo "<div class='input-group'>";
-                        echo "<input type='number' name='quantity' value='{$quantity}' class='form-control cart-quantity' min='1' />";
+                        echo "<input style='margin-bottom: 10px;' type='number' name='quantity' value='{$quantity}' class='form-control cart-quantity' min='1' />";
                             echo "<span class=''>";
                                 echo "<button class='btn btn-danger btn-circle update-quantity' type='submit'>Update</button>";
                             echo "</span>";
@@ -73,7 +73,7 @@ if(count($_SESSION['cart'])>0){
                     echo "</form>";
 
                     // delete from cart
-                    echo "<a href='remove_from_cart.php?id={$id}' class='btn btn-danger btn-circle'>";
+                    echo "<a style='margin-left: 10px;' href='remove_from_cart.php?id={$id}' class='btn btn-danger btn-sm btn-circle'>";
                         echo "Delete";
                     echo "</a>";
             echo "</div>";
