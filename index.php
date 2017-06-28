@@ -61,12 +61,11 @@
                                 </li>
                                 <!-- Read php-->
                                 <li class="menu-item-has-children">
-                                    <a href="menu.php">Menu</a>
+                                    <a href="Content/downloads/grabngomenu.pdf">Menu Download</a>
                                 </li>
-
                                 <!-- Mega menu-->
                                 <li class="menu-item-has-children menu-item-has-mega-menu">
-                                    <a href="Content/downloads/grabngomenu.pdf">Menu Download</a>
+                                    <a href="menu.php">Menu</a>
                                     <div class="mega-menu">
                                         <ul class="sub-menu mega-menu-row">
                                             <!-- Column 1-->
@@ -107,11 +106,16 @@
                 <!-- Extra menu-->
                 <div class="extra-nav">
                     <ul>
-                        <li><a class="open-offcanvas" href="#"><span>Cart</span><span class="fa fa-bars"></span></a></li>
+                        <li><a class="open-offcanvas" href="#"><span></span><span class="fa fa-bars"></span></a></li>
                     </ul>
                 </div>
                 <!-- Mobile menu-->
-                <div class="nav-toogle"><a href="#" data-toggle="collapse" data-target=".inner-navigation"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a></div>
+                <div class="nav-toogle">
+                    <a href="#" data-toggle="collapse" data-target=".inner-navigation">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a></div>
             </div>
         </header>
         <!-- Header end-->

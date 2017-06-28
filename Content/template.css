@@ -594,7 +594,7 @@ select.form-control-sm:not([size]):not([multiple]) {
 
 .btn.btn-white:hover,
 .btn.btn-white:focus {
-    background-color: #CFC684;
+    background-color: #8C001A;
     border-color: #CFC684;
     color: #8C001A;
 }

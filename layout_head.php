@@ -47,7 +47,7 @@ $_SESSION['cart']=isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
     <link href="https://fonts.googleapis.com/css?family=Hind:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:400i" rel="stylesheet">
     <!-- Bootstrap core CSS-->
-    <link href="Content/bootstrap.min.css" rel="stylesheet">
+  <!--  <link href="Content/bootstrap.min.css" rel="stylesheet"> -->
     <!-- Icon Fonts-->
     <link href="Content/font-awesome.min.css" rel="stylesheet">
     <link href="Content/linea-arrows.css" rel="stylesheet">
