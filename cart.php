@@ -60,10 +60,10 @@ if(count($_SESSION['cart'])>0){
         // =================
         echo "<div class='cart-row'>";
             echo "<div class='col-md-8'>";
-                echo "<div class='product-name m-b-10px'><h4>{$name}</h4></div>";
+                echo "<div class='food-name m-b-10px'><h4>{$name}</h4></div>";
                     // update quantity
                     echo "<form class='update-quantity-form'>";
-                    echo "<div class='product-id' style='display:none;'>{$id}</div>";
+                    echo "<div class='food-id' style='display:none;'>{$id}</div>";
                     echo "<div class='input-group'>";
                         echo "<input type='number' name='quantity' value='{$quantity}' class='form-control cart-quantity' min='1' />";
                             echo "<span class=''>";

@@ -21,8 +21,8 @@ $database = new Database();
 $db = $database->getConnection();
 
 // initialize objects
-$product = new Food($db);
-$product_image = new FoodImage($db);
+$food = new Food($db);
+$food_image = new FoodImage($db);
 
 // set page title
 $page_title="Checkout";
@@ -38,7 +38,7 @@ if(count($_SESSION['cart'])>0){
         array_push($ids, $id);
     }
 
-    $stmt=$product->readByIds($ids);
+    $stmt=$food->readByIds($ids);
 
     $total=0;
     $item_count=0;
@@ -56,7 +56,7 @@ if(count($_SESSION['cart'])>0){
         echo "<div class='cart-row'>";
         echo "<div class='col-md-8'>";
 
-        echo "<div class='product-name m-b-10px'><h4>{$name}</h4></div>";
+        echo "<div class='food-name m-b-10px'><h4>{$name}</h4></div>";
         echo $quantity>1 ? "<div>{$quantity} items</div>" : "<div>{$quantity} item</div>";
 
         echo "</div>";
