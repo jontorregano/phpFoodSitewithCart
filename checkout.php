@@ -71,7 +71,6 @@ if(count($_SESSION['cart'])>0){
         $total+=$sub_total;
     }
 
-    // echo "<div class='col-md-8'></div>";
     echo "<div class='col-md-12 text-align-center'>";
     echo "<div class='cart-row'>";
     if($item_count>1){
@@ -80,9 +79,7 @@ if(count($_SESSION['cart'])>0){
         echo "<h4 class='m-b-10px'>Total ({$item_count} item)</h4>";
     }
     echo "<h4>&#36;" . number_format($total, 2, '.', ',') . "</h4>";
-    echo "<a href='place_order.php' class='btn btn-lg btn-circle btn-danger m-b-10px'>";
-    echo "<span class='glyphicon glyphicon-shopping-cart'></span> Place Order";
-    echo "</a>";
+
     echo "</div>";
     echo "</div>";
 }
@@ -94,16 +91,24 @@ else{
     echo "</div>";
     echo "</div>";
 }
-
-include 'layout_foot.php';
 ?>
 
 <?php require_once('./config.php'); ?>
-
-<form action="charge.php" method="post">
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+<div class="col-md-12 text-center">
+    <form action="charge.php" method="POST">
+        <script
+            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="<?php echo $stripe['publishable_key']; ?>"
-            data-description="Access for a year"
             data-amount="<?php echo $total * 100 ?>"
-            data-locale="auto"></script>
-</form>
+            data-name="Food Purchase"
+            data-description="Complete Purchasing Food"
+            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+            data-locale="auto">
+        </script>
+    </form>
+</div>
+
+<?php
+include 'layout_foot.php';
+?>
+

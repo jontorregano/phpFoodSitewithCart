@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2017 at 09:38 PM
+-- Generation Time: Jul 04, 2017 at 06:55 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -124,7 +124,87 @@ CREATE TABLE `food_images` (
 --
 
 INSERT INTO `food_images` (`id`, `food_id`, `name`) VALUES
-(1, 1, 'noImage');
+(1, 1, 'noImage'),
+(2, 2, 'noImage'),
+(3, 3, 'noImage'),
+(4, 4, 'noImage'),
+(5, 5, 'noImage'),
+(6, 6, 'noImage'),
+(7, 7, 'noImage'),
+(8, 8, 'noImage'),
+(9, 9, 'noImage'),
+(10, 10, 'noImage'),
+(11, 11, 'noImage'),
+(12, 12, 'noImage'),
+(13, 13, 'noImage'),
+(14, 14, 'noImage'),
+(15, 15, 'noImage'),
+(16, 16, 'noImage'),
+(17, 17, 'noImage'),
+(18, 18, 'noImage'),
+(19, 19, 'noImage'),
+(20, 20, 'noImage'),
+(21, 21, 'noImage'),
+(22, 22, 'noImage'),
+(23, 23, 'noImage'),
+(24, 24, 'noImage'),
+(25, 25, 'noImage'),
+(26, 26, 'noImage'),
+(27, 27, 'noImage'),
+(28, 28, 'noImage'),
+(29, 29, 'noImage'),
+(30, 30, 'noImage'),
+(31, 31, 'noImage'),
+(32, 32, 'noImage'),
+(33, 33, 'noImage'),
+(34, 34, 'noImage'),
+(35, 35, 'noImage'),
+(36, 36, 'noImage'),
+(37, 37, 'noImage'),
+(38, 38, 'noImage'),
+(39, 39, 'noImage'),
+(40, 40, 'noImage'),
+(41, 41, 'noImage'),
+(42, 42, 'noImage'),
+(43, 43, 'noImage'),
+(44, 44, 'noImage'),
+(45, 45, 'noImage'),
+(46, 46, 'noImage'),
+(47, 47, 'noImage'),
+(48, 48, 'noImage'),
+(49, 49, 'noImage'),
+(50, 50, 'noImage'),
+(51, 51, 'noImage'),
+(52, 52, 'noImage'),
+(53, 53, 'noImage'),
+(54, 54, 'noImage'),
+(55, 55, 'noImage'),
+(56, 56, 'noImage'),
+(57, 57, 'noImage'),
+(58, 58, 'noImage'),
+(59, 59, 'noImage'),
+(60, 60, 'noImage'),
+(61, 61, 'noImage'),
+(62, 62, 'noImage'),
+(63, 63, 'noImage'),
+(64, 64, 'noImage'),
+(65, 65, 'noImage'),
+(66, 66, 'noImage'),
+(67, 67, 'noImage'),
+(68, 68, 'noImage');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `food_orders`
+--
+
+CREATE TABLE `food_orders` (
+  `id` int(11) NOT NULL,
+  `food_list` longtext NOT NULL,
+  `food_total` float NOT NULL,
+  `created_on` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -134,6 +214,12 @@ INSERT INTO `food_images` (`id`, `food_id`, `name`) VALUES
 -- Indexes for table `food_images`
 --
 ALTER TABLE `food_images`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `food_orders`
+--
+ALTER TABLE `food_orders`
   ADD PRIMARY KEY (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
