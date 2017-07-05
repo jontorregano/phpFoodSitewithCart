@@ -112,8 +112,17 @@ if(count($_SESSION['cart'])>0) {
         $item_count += $quantity;
         $total += $sub_total;
     }
-}
 
+    $sql = "INSERT INTO food_orders (food_list, food_total, created_on) VALUES (:$name, :$total, :current_timestamp)";
+
+    $stmt = $db->prepare($sql);
+
+    $stmt->bindParam(':$name', $_POST['food_list'], PDO::PARAM_STR);
+    $stmt->bindParam(':$total', $_POST['food_total'], PDO::PARAM_STR);
+    $stmt->bindParam(':current_timestamp',$_POST['created_on'], PDO::PARAM_STR);
+
+    $stmt->execute();
+}
 
 // tell the user order has been placed
 echo "<div class='alert alert-success'>";
@@ -122,6 +131,9 @@ echo "</div>";
 
 echo "</div>";
 
+//if ($_POST) {
+
+    //include 'config/database.php';
 
 
 // remove items from the cart

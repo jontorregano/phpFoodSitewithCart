@@ -15,7 +15,7 @@ include_once  "objects/orders.php";
 $database = new Database();
 $db = $database->getConnection();
 
-$order = new Orders($db);
+$order = new Order($db);
 $food = new Food($db);
 $food_images = new FoodImage($db);
 
