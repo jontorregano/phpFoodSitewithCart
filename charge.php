@@ -80,7 +80,13 @@ if(count($_SESSION['cart'])>0) {
         array_push($ids, $id);
     }
 
+    $names = array();
+    foreach ($_SESSION['cart'] as $name => $value) {
+        array_push($names, $name);
+    }
+
     $stmt = $food->readByIds($ids);
+    $stmt = $food->readByNames($names);
 
     $total = 0;
     $item_count = 0;
@@ -111,57 +117,24 @@ if(count($_SESSION['cart'])>0) {
 
         $item_count += $quantity;
         $total += $sub_total;
+        $order_string = "name={$name}&quantity={$quantity}";
 
-        $date=date_create();
-        $current_timestamp = date_timestamp_get($date);
+
     }
 
-    //$sql = "INSERT INTO food_orders (food_list, food_total, created_on) VALUES (:$name, :$total, :current_timestamp)";
+    $insertOrder = $db->query("INSERT INTO food_orders (food_total, created_on) VALUES 
+      ('" . $total . "', '" . date("Y-m-d H:i:s") . "')");
 
-    //$stmt = $db->prepare($sql);
-
-    //$stmt->bindParam(':$name', $_POST['food_list'], PDO::PARAM_STR);
-    //$stmt->bindParam(':$total', $_POST['food_total'], PDO::PARAM_STR);
-    //$stmt->bindParam(':current_timestamp',$_POST['created_on'], PDO::PARAM_STR);
-
-    //$stmt->execute();
-    if($_POST) {
-        try {
-
-            // insert query
-            $query = ("INSERT INTO food_orders VALUES ('?','$name','$total','$current_timestamp')");
-
-            // prepare query for execution
-            $stmt = $db->prepare($query);
-
-            // posted values
-            //$food_list = htmlspecialchars(strip_tags($_POST['food_list']));
-            //$total = htmlspecialchars(strip_tags($_POST['total']));
-
-            // bind the parameters
-            //$stmt->bindParam(':food_list', $food_list);
-            //$stmt->bindParam(':total', $total);
-
-            // specify when this record was inserted to the database
-            //$created_on = date('Y-m-d H:i:s');
-            //$stmt->bindParam(':created_on', $created_on);
-
-            // Execute the query
-            if ($stmt->execute()) {
-                echo "<div class='alert alert-success'>Record was saved.</div>";
-            } else {
-                echo "<div class='alert alert-danger'>Unable to save record.</div>";
-            }
-        } // show error
-        catch (PDOException $exception) {
-            die('ERROR: ' . $exception->getMessage());
-        }
+    if ($insertOrder){
+        $orderID = $food_order->id;
+        $insertFood = $db->query("INSERT INTO order_items (order_id, food_list, quantity) 
+        VALUES ('".$total."', '".$total."', '".$total."');");
     }
 }
 
 // tell the user order has been placed
 echo "<div class='alert alert-success'>";
-echo "<strong>Your order has been placed!</strong> Thank you very much!";
+echo "<strong>Your order of has been placed!</strong> Thank you very much!";
 echo "</div>";
 
 echo "</div>";

@@ -73,6 +73,23 @@ class Food
         return $stmt;
     }
 
+    public function readByNames($names){
+
+        $names_arr = str_repeat('?,', count($names) - 1) . '?';
+
+        // query to select products
+        $query = "SELECT id, name, price FROM " . $this->table_name . " WHERE id IN ({$names_arr}) ORDER BY name";
+
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+
+        // execute query
+        $stmt->execute($names);
+
+        // return values from database
+        return $stmt;
+    }
+
     function readOne(){
 
         // query to select single record
