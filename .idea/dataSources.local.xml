@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="php_shopping_cart@localhost" uuid="82de1582-9b79-4fc1-80ee-4e7bef8a468f">
+    <data-source name="php_shopping_cart@localhost" uuid="9eb99e7a-b2ce-4d25-9f89-49b23952bf64">
       <database-info product="MySQL" version="5.7.14" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.40 ( Revision: 402933ef52cad9aa82624e80acbea46e3a701ce6 )">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>

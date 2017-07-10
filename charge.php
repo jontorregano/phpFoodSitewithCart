@@ -117,19 +117,17 @@ if(count($_SESSION['cart'])>0) {
 
         $item_count += $quantity;
         $total += $sub_total;
-        $order_string = "name={$name}&quantity={$quantity}";
-
-
+        $order_string = "Name={$name}&Quantity={$quantity}";
     }
 
-    $insertOrder = $db->query("INSERT INTO food_orders (food_total, created_on) VALUES 
-      ('" . $total . "', '" . date("Y-m-d H:i:s") . "')");
+    $insertOrder = $db->query("INSERT INTO food_orders (food_total, created_on, food_list) VALUES 
+      ('" . $total . "', '" . date("Y-m-d H:i:s") . "' , '".$order_string."')");
 
-    if ($insertOrder){
-        $orderID = $food_order->id;
-        $insertFood = $db->query("INSERT INTO order_items (order_id, food_list, quantity) 
-        VALUES ('".$total."', '".$total."', '".$total."');");
-    }
+    //if ($insertOrder){
+        //$orderID = $food_order->id;
+        //$insertFood = $db->query("INSERT INTO order_items (order_id, food_list, quantity)
+        //VALUES ('".$total."', '".$total."', '".$total."');");
+    //}
 }
 
 // tell the user order has been placed

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 09, 2017 at 08:57 AM
+-- Generation Time: Jul 10, 2017 at 05:17 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -202,16 +202,17 @@ INSERT INTO `food_images` (`id`, `food_id`, `name`) VALUES
 CREATE TABLE `food_orders` (
   `id` int(11) NOT NULL,
   `food_total` float NOT NULL,
-  `created_on` datetime NOT NULL
+  `created_on` datetime NOT NULL,
+  `food_list` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `food_orders`
 --
 
-INSERT INTO `food_orders` (`id`, `food_total`, `created_on`) VALUES
-(17, 20.97, '2017-07-09 08:45:24'),
-(18, 15.98, '2017-07-09 08:56:35');
+INSERT INTO `food_orders` (`id`, `food_total`, `created_on`, `food_list`) VALUES
+(19, 9.98, '2017-07-09 08:58:56', ''),
+(20, 4.99, '2017-07-10 04:15:32', '');
 
 -- --------------------------------------------------------
 
@@ -256,7 +257,7 @@ ALTER TABLE `order_items`
 -- AUTO_INCREMENT for table `food_orders`
 --
 ALTER TABLE `food_orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

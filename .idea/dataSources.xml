@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="php_shopping_cart@localhost" uuid="82de1582-9b79-4fc1-80ee-4e7bef8a468f">
+    <data-source source="LOCAL" name="php_shopping_cart@localhost" uuid="9eb99e7a-b2ce-4d25-9f89-49b23952bf64">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
