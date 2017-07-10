@@ -15,14 +15,17 @@ include 'config/database.php';
 // include objects
 include_once "objects/food.php";
 include_once "objects/food_image.php";
+include_once "objects/orders.php";
 
 // get database connection
 $database = new Database();
 $db = $database->getConnection();
 
+
 // initialize objects
 $food = new Food($db);
 $food_image = new FoodImage($db);
+$food_order = new Order($db);
 
 // set page title
 $page_title="Checkout";
@@ -42,6 +45,8 @@ if(count($_SESSION['cart'])>0){
 
     $total=0;
     $item_count=0;
+    $tax_rate=0.10;
+    $grand_total=0;
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         extract($row);
@@ -69,18 +74,27 @@ if(count($_SESSION['cart'])>0){
 
         $item_count += $quantity;
         $total+=$sub_total;
+        $tax_rate *= $total;
+        $grand_total += $total += $tax_rate;
     }
 
     echo "<div class='col-md-12 text-align-center'>";
-    echo "<div class='cart-row'>";
-    if($item_count>1){
-        echo "<h4 class='m-b-10px'>Total ({$item_count} items)</h4>";
-    }else{
-        echo "<h4 class='m-b-10px'>Total ({$item_count} item)</h4>";
-    }
-    echo "<h4>&#36;" . number_format($total, 2, '.', ',') . "</h4>";
-
+        echo "<div class='cart-row'>";
+        if($item_count>1){
+            echo "<h4 class='m-b-10px'>Total ({$item_count} items)</h4>";
+        }else{
+            echo "<h4 class='m-b-10px'>Total ({$item_count} item)</h4>";
+        }
+    echo "<h4>Sub Total: &#36;" . number_format($sub_total, 2, '.', ',') . "</h4>";
+    echo "<h4>Taxes: &#36;" . number_format($tax_rate, 2, '.', ',') . "</h4>";
     echo "</div>";
+    echo "</div>";
+
+    echo "<div class='col-md-12 text-align-center'>";
+        echo "<div class='cart-row'>";
+        echo "<h4>Grand Total</h4>";
+        echo "<h4>&#36;" . round($grand_total,2) . "</h4>";
+        echo "</div>";
     echo "</div>";
 }
 
@@ -99,7 +113,7 @@ else{
         <script
             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="<?php echo $stripe['publishable_key']; ?>"
-            data-amount="<?php echo $total * 100 ?>"
+            data-amount="<?php echo round($grand_total,2) * 100 ?>"
             data-name="Food Purchase"
             data-description="Complete Purchasing Food"
             data-image="https://stripe.com/img/documentation/checkout/marketplace.png"

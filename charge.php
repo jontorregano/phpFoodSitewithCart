@@ -39,6 +39,8 @@ if(count($_SESSION['cart'])>0) {
 
     $total = 0;
     $item_count = 0;
+    $grand_total=0;
+    $tax_rate= 0.10;
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         extract($row);
@@ -48,19 +50,20 @@ if(count($_SESSION['cart'])>0) {
 
         $item_count += $quantity;
         $total += $sub_total;
+        $quantitytax = $tax_rate + $total;
     }
 }
 
   $token  = $_POST['stripeToken'];
 
   $customer = \Stripe\Customer::create(array(
-      'email' => 'customer@example.com',
+      'email' => '',
       'source'  => $token
   ));
 
   $charge = \Stripe\Charge::create(array(
       'customer' => $customer->id,
-      'amount'   => $total * 100,
+      'amount'   => $quantitytax * 100,
       'currency' => 'usd',
   ));
 
