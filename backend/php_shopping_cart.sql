@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 11, 2017 at 10:46 AM
+-- Generation Time: Jul 11, 2017 at 03:44 PM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -203,7 +203,9 @@ CREATE TABLE `food_orders` (
   `id` int(11) NOT NULL,
   `food_total` float NOT NULL,
   `created_on` datetime NOT NULL,
-  `food_list` text NOT NULL
+  `food_list` text NOT NULL,
+  `customer_names` text NOT NULL,
+  `customer_comment` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

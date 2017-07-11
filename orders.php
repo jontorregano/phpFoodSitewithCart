@@ -51,7 +51,7 @@
         include 'layout_head.php';
 
         // select all data
-        $query = "SELECT id, food_list, food_total, created_on FROM food_orders ORDER BY created_on DESC";
+        $query = "SELECT id, food_list, food_total, created_on, customer_names, customer_comment FROM food_orders ORDER BY created_on DESC";
         $stmt = $db->prepare($query);
         $stmt->execute();
 
@@ -70,6 +70,7 @@
             echo "<tr>";
             echo "<th>Food Ordered</th>";
             echo "<th>Order Total</th>";
+            echo "<th>Customer Name</th>";
             echo "<th>Created On</th>";
             echo "<th>Action</th>";
             echo "</tr>";
@@ -88,6 +89,7 @@
                 //echo "<td>{$id}</td>";
                 echo "<td>{$food_list}</td>";
                 echo "<td>&#36;" . round($food_total,2) . "</td>";
+                echo "<td>{$customer_names}</td>";
                 echo "<td>{$created_on}</td>";
                 echo "<td>";
                 // read one record

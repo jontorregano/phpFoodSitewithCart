@@ -126,6 +126,9 @@ if(count($_SESSION['cart'])>0) {
         $grandtotal = $tax + $total_notax;
 
         $order_string = "Name={$name}&Quantity={$quantity}";
+
+        $customerName = $_POST["customer_name"];
+        $customerComment = $_POST["customer_comment"];
     }
 
     echo "<div>";
@@ -145,14 +148,21 @@ if(count($_SESSION['cart'])>0) {
     echo "<div class='cart-row'>";
     echo "<h4>Grand Total</h4>";
     echo "<h4>&#36;" . round($grandtotal,2) . "</h4>";
+    echo "<h4>Customer Name: " . $customerName . "</h4>";
+    echo "<h4>Comment /  Food Options: " . $customerComment . "</h4>";
     echo "</div>";
     echo "</div>";
     echo "</div>";
 
-        $insertOrder = $db->query("INSERT INTO food_orders (food_total, created_on, food_list) VALUES 
-      ('" . $grandtotal . "', '" . date("Y-m-d H:i:s") . "' , '" . $order_string . "')");
+        $insertOrder = $db->query("INSERT INTO food_orders (food_total, created_on, food_list, customer_names, 
+          customer_comment) VALUES 
+        ('" . $grandtotal . "', '" . date("Y-m-d H:i:s") . "' ,'" . $order_string . "','" . $customerName . "'
+        ,'" . $customerComment . "')");
 }
 
+?>
+
+<?php
 // tell the user order has been placed
 echo "<div class='alert alert-success text-center'>";
 echo "<strong>Your order of has been placed!</strong> Thank you very much!";

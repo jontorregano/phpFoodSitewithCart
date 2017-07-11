@@ -78,6 +78,8 @@ if(count($_SESSION['cart'])>0){
         $total_notax = $total;
         $tax = $total_notax * $tax_rate;
         $grandtotal = $tax + $total_notax;
+
+        $order_string = "Name={$name}&Quantity={$quantity}";
     }
 
     echo "<div class='col-md-12 text-align-center'>";
@@ -98,29 +100,29 @@ if(count($_SESSION['cart'])>0){
         echo "<h4>&#36;" . round($grandtotal,2) . "</h4>";
         echo "</div>";
     echo "</div>";
+
+    $customer_names = $customer_comment = "";
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $customer_names = test_input($_POST["customer_name"]);
+        $customer_comment = test_input($_POST["customer_comment"]);
+    }
+
+    function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
 }
 
-//else{
-//    echo "<div class='col-md-12'>";
-//    echo "<div class='alert alert-danger'>";
-//    echo "No products found in your cart!";
-//    echo "</div>";
-//   echo "</div>";
-//}
-
-//$customer_names = $customer_comment = "";
-
-//if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//    $customer_names = test_input($_POST["customer_name"]);
-//    $customer_comment = test_input($_POST["customer_comment"]);
-//}
-
-//function test_input($data) {
-//    $data = trim($data);
-//    $data = stripslashes($data);
-//    $data = htmlspecialchars($data);
-//    return $data;
-//}
+else{
+    echo "<div class='col-md-12'>";
+    echo "<div class='alert alert-danger'>";
+    echo "No products found in your cart!";
+    echo "</div>";
+    echo "</div>";
+}
 
 ?>
 
@@ -128,6 +130,13 @@ if(count($_SESSION['cart'])>0){
 
 <div class="col-md-12 text-center">
     <form action="charge.php" method="POST">
+        <h4 class="text-center" style="padding-top: 1%">Customer Information</h4>
+        <div class="text-center">
+            Name: <input type="text" name="customer_name">
+            <br><br>
+            Comment / Food Options: <textarea name="customer_comment" rows="3" cols="40"></textarea>
+            <br><br>
+        </div>
         <script
                 src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                 data-key="<?php echo $stripe['publishable_key']; ?>"
@@ -139,17 +148,6 @@ if(count($_SESSION['cart'])>0){
         </script>
     </form>
 </div>
-
-<!--html>
-<h4 class="text-center" style="padding-top: 27%">Customer Information</h4>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"
-<div class="text-center">
-    Name: <input type="text" name="customer_name">
-    <br><br>
-    Comment / Food Options: <textarea name="customer_comment" rows="3" cols="40"></textarea>
-    <br><br>
-</div>
-</html>
 
 <?php
 include 'layout_foot.php';
