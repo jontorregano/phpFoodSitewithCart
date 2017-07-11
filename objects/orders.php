@@ -14,6 +14,8 @@ class Order
     public $food_list;
     public $food_total;
     public $created_on;
+    public $customer_names;
+    public $customer_comment;
 
     public function __construct($db){
         $this->conn = $db;

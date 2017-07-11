@@ -85,9 +85,9 @@
 
                 // creating new table row per record
                 echo "<tr>";
-                echo "<td>{$id}</td>";
+                //echo "<td>{$id}</td>";
                 echo "<td>{$food_list}</td>";
-                echo "<td>&#36;{$food_total}</td>";
+                echo "<td>&#36;" . round($food_total,2) . "</td>";
                 echo "<td>{$created_on}</td>";
                 echo "<td>";
                 // read one record

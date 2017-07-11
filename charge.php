@@ -39,8 +39,7 @@ if(count($_SESSION['cart'])>0) {
 
     $total = 0;
     $item_count = 0;
-    $grand_total=0;
-    $tax_rate= 0.10;
+    $tax_rate=0.10;
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         extract($row);
@@ -49,8 +48,11 @@ if(count($_SESSION['cart'])>0) {
         $sub_total = $price * $quantity;
 
         $item_count += $quantity;
-        $total += $sub_total;
-        $quantitytax = $tax_rate + $total;
+
+        $total+=$sub_total;
+        $total_notax = $total;
+        $tax = $total_notax * $tax_rate;
+        $grandtotal = $tax + $total_notax;
     }
 }
 
@@ -63,7 +65,7 @@ if(count($_SESSION['cart'])>0) {
 
   $charge = \Stripe\Charge::create(array(
       'customer' => $customer->id,
-      'amount'   => $quantitytax * 100,
+      'amount'   => round($grandtotal * 100),
       'currency' => 'usd',
   ));
 
@@ -93,15 +95,13 @@ if(count($_SESSION['cart'])>0) {
 
     $total = 0;
     $item_count = 0;
+    $tax_rate=0.10;
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         extract($row);
 
         $quantity = $_SESSION['cart'][$id]['quantity'];
         $sub_total = $price * $quantity;
-
-        //echo "<div class='product-id' style='display:none;'>{$id}</div>";
-        //echo "<div class='product-name'>{$name}</div>";
 
         // =================
         echo "<div class='cart-row'>";
@@ -119,22 +119,42 @@ if(count($_SESSION['cart'])>0) {
         // =================
 
         $item_count += $quantity;
-        $total += $sub_total;
+
+        $total+=$sub_total;
+        $total_notax = $total;
+        $tax = $total_notax * $tax_rate;
+        $grandtotal = $tax + $total_notax;
+
         $order_string = "Name={$name}&Quantity={$quantity}";
     }
 
-    $insertOrder = $db->query("INSERT INTO food_orders (food_total, created_on, food_list) VALUES 
-      ('" . $total . "', '" . date("Y-m-d H:i:s") . "' , '".$order_string."')");
+    echo "<div>";
+    echo "<div class='col-md-12 text-align-center'>";
+    echo "<div class='cart-row'>";
+    if($item_count>1){
+        echo "<h4 class='m-b-10px'>Total ({$item_count} items)</h4>";
+    }else{
+        echo "<h4 class='m-b-10px'>Total ({$item_count} item)</h4>";
+    }
+    echo "<h4>Sub Total: &#36;" . number_format($total, 2, '.', ',') . "</h4>";
+    echo "<h4>Taxes: &#36;" . number_format($tax, 2, '.', ',') . "</h4>";
+    echo "</div>";
+    echo "</div>";
 
-    //if ($insertOrder){
-        //$orderID = $food_order->id;
-        //$insertFood = $db->query("INSERT INTO order_items (order_id, food_list, quantity)
-        //VALUES ('".$total."', '".$total."', '".$total."');");
-    //}
+    echo "<div class='col-md-12 text-align-center'>";
+    echo "<div class='cart-row'>";
+    echo "<h4>Grand Total</h4>";
+    echo "<h4>&#36;" . round($grandtotal,2) . "</h4>";
+    echo "</div>";
+    echo "</div>";
+    echo "</div>";
+
+        $insertOrder = $db->query("INSERT INTO food_orders (food_total, created_on, food_list) VALUES 
+      ('" . $grandtotal . "', '" . date("Y-m-d H:i:s") . "' , '" . $order_string . "')");
 }
 
 // tell the user order has been placed
-echo "<div class='alert alert-success'>";
+echo "<div class='alert alert-success text-center'>";
 echo "<strong>Your order of has been placed!</strong> Thank you very much!";
 echo "</div>";
 

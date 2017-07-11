@@ -46,7 +46,7 @@ if(count($_SESSION['cart'])>0){
     $total=0;
     $item_count=0;
     $tax_rate=0.10;
-    $grand_total=0;
+    $grandtotal=0;
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         extract($row);
@@ -73,9 +73,11 @@ if(count($_SESSION['cart'])>0){
         // =================
 
         $item_count += $quantity;
+
         $total+=$sub_total;
-        $tax_rate *= $total;
-        $grand_total += $total += $tax_rate;
+        $total_notax = $total;
+        $tax = $total_notax * $tax_rate;
+        $grandtotal = $tax + $total_notax;
     }
 
     echo "<div class='col-md-12 text-align-center'>";
@@ -85,42 +87,69 @@ if(count($_SESSION['cart'])>0){
         }else{
             echo "<h4 class='m-b-10px'>Total ({$item_count} item)</h4>";
         }
-    echo "<h4>Sub Total: &#36;" . number_format($sub_total, 2, '.', ',') . "</h4>";
-    echo "<h4>Taxes: &#36;" . number_format($tax_rate, 2, '.', ',') . "</h4>";
+    echo "<h4>Sub Total: &#36;" . number_format($total, 2, '.', ',') . "</h4>";
+    echo "<h4>Taxes: &#36;" . number_format($tax, 2, '.', ',') . "</h4>";
     echo "</div>";
     echo "</div>";
 
     echo "<div class='col-md-12 text-align-center'>";
         echo "<div class='cart-row'>";
         echo "<h4>Grand Total</h4>";
-        echo "<h4>&#36;" . round($grand_total,2) . "</h4>";
+        echo "<h4>&#36;" . round($grandtotal,2) . "</h4>";
         echo "</div>";
     echo "</div>";
 }
 
-else{
-    echo "<div class='col-md-12'>";
-    echo "<div class='alert alert-danger'>";
-    echo "No products found in your cart!";
-    echo "</div>";
-    echo "</div>";
-}
+//else{
+//    echo "<div class='col-md-12'>";
+//    echo "<div class='alert alert-danger'>";
+//    echo "No products found in your cart!";
+//    echo "</div>";
+//   echo "</div>";
+//}
+
+//$customer_names = $customer_comment = "";
+
+//if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//    $customer_names = test_input($_POST["customer_name"]);
+//    $customer_comment = test_input($_POST["customer_comment"]);
+//}
+
+//function test_input($data) {
+//    $data = trim($data);
+//    $data = stripslashes($data);
+//    $data = htmlspecialchars($data);
+//    return $data;
+//}
+
 ?>
 
 <?php require_once('./config.php'); ?>
+
 <div class="col-md-12 text-center">
     <form action="charge.php" method="POST">
         <script
-            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="<?php echo $stripe['publishable_key']; ?>"
-            data-amount="<?php echo round($grand_total,2) * 100 ?>"
-            data-name="Food Purchase"
-            data-description="Complete Purchasing Food"
-            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-            data-locale="auto">
+                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<?php echo $stripe['publishable_key']; ?>"
+                data-amount="<?php echo round($grandtotal,2) * 100 ?>"
+                data-name="Food Purchase"
+                data-description="Complete Purchasing Food"
+                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                data-locale="auto">
         </script>
     </form>
 </div>
+
+<!--html>
+<h4 class="text-center" style="padding-top: 27%">Customer Information</h4>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"
+<div class="text-center">
+    Name: <input type="text" name="customer_name">
+    <br><br>
+    Comment / Food Options: <textarea name="customer_comment" rows="3" cols="40"></textarea>
+    <br><br>
+</div>
+</html>
 
 <?php
 include 'layout_foot.php';
