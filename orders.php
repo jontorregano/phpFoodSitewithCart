@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>PDO - Read Records - PHP CRUD Tutorial</title>
+    <title>Store Orders Placed</title>
 
     <!-- Bootstrap -->
     <!-- Latest compiled and minified CSS -->
@@ -48,6 +48,8 @@
         $food = new Food($db);
         $food_images = new FoodImage($db);
 
+        $page_title="Orders";
+
         include 'layout_head.php';
 
         // select all data
@@ -71,6 +73,7 @@
             echo "<th>Food Ordered</th>";
             echo "<th>Order Total</th>";
             echo "<th>Customer Name</th>";
+            echo "<th>Customer Comment</th>";
             echo "<th>Created On</th>";
             echo "<th>Action</th>";
             echo "</tr>";
@@ -90,16 +93,12 @@
                 echo "<td>{$food_list}</td>";
                 echo "<td>&#36;" . round($food_total,2) . "</td>";
                 echo "<td>{$customer_names}</td>";
+                echo "<td>{$customer_comment}</td>";
                 echo "<td>{$created_on}</td>";
                 echo "<td>";
-                // read one record
-                echo "<a href='read_one.php?id={$id}' class='btn btn-info m-r-1em'>Read</a>";
 
                 // we will use this links on next part of this post
-                echo "<a href='update.php?id={$id}' class='btn btn-primary m-r-1em'>Edit</a>";
-
-                // we will use this links on next part of this post
-                echo "<a href='#' onclick='delete_user({$id});'  class='btn btn-danger'>Delete</a>";
+                echo "<a href='#' onclick='delete_user({$id});'  class='btn btn-danger'>Order Complete / <br> Remove Order</a>";
                 echo "</td>";
                 echo "</tr>";
             }

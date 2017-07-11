@@ -47,6 +47,7 @@ if(count($_SESSION['cart'])>0){
     $item_count=0;
     $tax_rate=0.10;
     $grandtotal=0;
+    $total_order = '';
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         extract($row);
@@ -79,7 +80,8 @@ if(count($_SESSION['cart'])>0){
         $tax = $total_notax * $tax_rate;
         $grandtotal = $tax + $total_notax;
 
-        $order_string = "Name={$name}&Quantity={$quantity}";
+        $order_string = "Food {$name} Quantity {$quantity}<br><br>";
+        $total_order .= $order_string;
     }
 
     echo "<div class='col-md-12 text-align-center'>";

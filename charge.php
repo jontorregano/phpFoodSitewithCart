@@ -96,6 +96,7 @@ if(count($_SESSION['cart'])>0) {
     $total = 0;
     $item_count = 0;
     $tax_rate=0.10;
+    $total_order = '';
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         extract($row);
@@ -125,7 +126,8 @@ if(count($_SESSION['cart'])>0) {
         $tax = $total_notax * $tax_rate;
         $grandtotal = $tax + $total_notax;
 
-        $order_string = "Name={$name}&Quantity={$quantity}";
+        $order_string = "Food {$name} Quantity {$quantity}<br><br>";
+        $total_order .= $order_string;
 
         $customerName = $_POST["customer_name"];
         $customerComment = $_POST["customer_comment"];
@@ -156,7 +158,7 @@ if(count($_SESSION['cart'])>0) {
 
         $insertOrder = $db->query("INSERT INTO food_orders (food_total, created_on, food_list, customer_names, 
           customer_comment) VALUES 
-        ('" . $grandtotal . "', '" . date("Y-m-d H:i:s") . "' ,'" . $order_string . "','" . $customerName . "'
+        ('" . $grandtotal . "', '" . date("Y-m-d H:i:s") . "' ,'" . $total_order . "','" . $customerName . "'
         ,'" . $customerComment . "')");
 }
 
