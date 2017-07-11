@@ -12,11 +12,13 @@ session_start();
 include "config/database.php";
 
 include_once "objects/food.php";
-include_once  "objects/food_image.php";
+include_once "objects/food_image.php";
+include_once  "objects/orders.php";
 
 $database = new Database();
 $db = $database->getConnection();
 
+$order = new Order($db);
 $food = new Food($db);
 $food_images = new FoodImage($db);
 

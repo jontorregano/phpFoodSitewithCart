@@ -95,28 +95,33 @@ echo "<div class='col-md-5'>";
 echo "</div>";
 
 echo "<div class='col-md-2'>";
-    // if product was already added in the cart
-    if(array_key_exists($id, $_SESSION['cart'])){
-        echo "<div class='m-b-10px'>This product is already in your cart.</div>";
-        echo "<a href='cart.php' class='btn btn-circle btn-danger w-100-pct'>";
-        echo "Update Cart";
-        echo "</a>";
-    }
+
+// if product was already added in the cart
+if(array_key_exists($id, $_SESSION['cart'])){
+    echo "<div class='m-b-10px'>This product is already in your cart.</div>";
+    echo "<a href='cart.php' class='btn btn-success w-100-pct'>";
+    echo "Update Cart";
+    echo "</a>";
+
+}
 
 // if product was not added to the cart yet
-    else{
-        echo "<form class='add-to-cart-form'>";
-        // product id
-        echo "<div class='product-id display-none'>{$id}</div>";
-        echo "<div class='m-b-10px f-w-b'>Quantity:</div>";
-        echo "<input type='number' value='1' class='form-control m-b-10px cart-quantity' min='1' />";
-        // enable add to cart button
-        echo "<button style='width:100%;' type='submit' class='btn btn-primary add-to-cart m-b-10px'>";
-        echo "<span class='glyphicon glyphicon-shopping-cart'></span> Add to cart";
-        echo "</button>";
+else{
 
-        echo "</form>";
-    }
+    echo "<form class='add-to-cart-form'>";
+    // product id
+    echo "<div class='food-id display-none'>{$id}</div>";
+
+    echo "<div class='m-b-10px f-w-b'>Quantity:</div>";
+    echo "<input type='number' value='1' class='form-control m-b-10px cart-quantity' min='1' />";
+
+    // enable add to cart button
+    echo "<button style='width:100%;' type='submit' class='btn btn-primary add-to-cart m-b-10px'>";
+    echo "<span class='glyphicon glyphicon-shopping-cart'></span> Add to cart";
+    echo "</button>";
+
+    echo "</form>";
+}
 echo "</div>";
 
 // include page footer HTML

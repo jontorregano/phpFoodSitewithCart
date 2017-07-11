@@ -47,6 +47,7 @@ if(count($_SESSION['cart'])>0){
     $item_count=0;
     $tax_rate=0.10;
     $grandtotal=0;
+    $tax = 0;
     $total_order = '';
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
