@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 04, 2017 at 06:55 AM
+-- Generation Time: Jul 11, 2017 at 06:48 PM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -19,6 +19,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `php_shopping_cart`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `username` text NOT NULL,
+  `password` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `username`, `password`) VALUES
+(1, 'Grab_go2017', 'Grab_go2017');
 
 -- --------------------------------------------------------
 
@@ -201,14 +220,22 @@ INSERT INTO `food_images` (`id`, `food_id`, `name`) VALUES
 
 CREATE TABLE `food_orders` (
   `id` int(11) NOT NULL,
-  `food_list` longtext NOT NULL,
   `food_total` float NOT NULL,
-  `created_on` datetime NOT NULL
+  `created_on` datetime NOT NULL,
+  `food_list` text NOT NULL,
+  `customer_names` text NOT NULL,
+  `customer_comment` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `food_images`
@@ -222,6 +249,15 @@ ALTER TABLE `food_images`
 ALTER TABLE `food_orders`
   ADD PRIMARY KEY (`id`);
 
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `food_orders`
+--
+ALTER TABLE `food_orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
