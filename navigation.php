@@ -38,37 +38,6 @@
                             <!-- Mega menu-->
                             <li class="menu-item-has-children menu-item-has-mega-menu">
                                 <a href="menu.php">Menu</a>
-                                <div class="mega-menu">
-                                    <ul class="sub-menu mega-menu-row">
-                                        <!-- Column 1-->
-                                        <li class="menu-item-has-children mega-menu-col">
-                                            <a href="index.php">Breakfast</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="index.php">Sandwiches</a></li>
-                                                <li><a href="index.php">Plates</a></li>
-                                                <li><a href="index.php">All</a></li>
-                                            </ul>
-                                        </li>
-                                        <!-- Column 2-->
-                                        <li class="menu-item-has-children mega-menu-col">
-                                            <a href="index.php">Poboys</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="index.php">Sandwiches</a></li>
-                                                <li><a href="index.php">Combos</a></li>
-                                                <li><a href="index.php">All</a></li>
-                                            </ul>
-                                        </li>
-                                        <!-- Column 3-->
-                                        <li class="menu-item-has-children mega-menu-col">
-                                            <a href="index.php">Fried Chicken</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="index.php">Combos</a></li>
-                                                <li><a href="index.php">All</a></li>
-
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
                             </li>
                             <!-- Mega menu end-->
                         </ul>
@@ -78,9 +47,10 @@
             <!-- Extra menu-->
             <div class="extra-nav">
                 <ul>
-                    <li><a class="open-offcanvas" href="#"><span></span><span class="fa fa-bars"></span></a></li>
+                    <li><a href="cart.php"><span>Cart</span><span class="fa fa-bars"></span></a></li>
                 </ul>
             </div>
+
             <!-- Mobile menu-->
             <div class="nav-toogle"><a href="#" data-toggle="collapse" data-target=".inner-navigation"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a></div>
         </div>

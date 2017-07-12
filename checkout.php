@@ -94,7 +94,7 @@ else{
 ?>
 
 <?php require_once('./config.php'); ?>
-<div class="col-md-12 text-center">
+<div style="padding-top: 15px;" class="col-md-12 text-center">
     <form action="charge.php" method="POST">
         <script
             src="https://checkout.stripe.com/checkout.js" class="stripe-button"

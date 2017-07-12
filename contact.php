@@ -61,45 +61,11 @@
                                 </li>
                                 <!-- Read php-->
                                 <li class="menu-item-has-children">
-                                    <a href="read_updater.php">Inventory Menu</a>
+                                    <a href="Content/downloads/grabngomenu.pdf">Menu Download</a>
                                 </li>
-
                                 <!-- Mega menu-->
                                 <li class="menu-item-has-children menu-item-has-mega-menu">
-                                    <a href="index.php">Menu</a>
-                                    <div class="mega-menu">
-                                        <ul class="sub-menu mega-menu-row">
-                                            <!-- Column 1-->
-                                            <li class="menu-item-has-children mega-menu-col">
-                                                <a href="index.php">Breakfast</a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="index.php">Sandwiches</a></li>
-                                                    <li><a href="index.php">Plates</a></li>
-                                                    <li><a href="index.php">All</a></li>
-
-                                                </ul>
-                                            </li>
-                                            <!-- Column 2-->
-                                            <li class="menu-item-has-children mega-menu-col">
-                                                <a href="index.php">Poboys</a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="index.php">Sandwiches</a></li>
-                                                    <li><a href="index.php">Combos</a></li>
-                                                    <li><a href="index.php">All</a></li>
-
-                                                </ul>
-                                            </li>
-                                            <!-- Column 3-->
-                                            <li class="menu-item-has-children mega-menu-col">
-                                                <a href="index.php">Fried Chicken</a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="index.php">Combos</a></li>
-                                                    <li><a href="index.php">All</a></li>
-
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    <a href="menu.php">Menu</a>
                                 </li>
                                 <!-- Mega menu end-->
                             </ul>
@@ -109,7 +75,7 @@
                 <!-- Extra menu-->
                 <div class="extra-nav">
                     <ul>
-                        <li><a class="open-offcanvas" href="#"><span>Cart</span><span class="fa fa-bars"></span></a></li>
+                        <li><a href="cart.php"><span>Cart</span><span class="fa fa-bars"></span></a></li>
                     </ul>
                 </div>
                 <!-- Mobile menu-->
